@@ -8,7 +8,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 class EloquentPostRepository implements PostInterface
 {
-    // Our Eloquent recipe and ingredient models
+    // Our Eloquent Post entity
     protected $postModel;
 
     /**
@@ -23,7 +23,7 @@ class EloquentPostRepository implements PostInterface
 
 
     /**
-     *
+     * View All Posts
      *
      * @return Model
      * @throws NotFoundHttpException
@@ -59,7 +59,7 @@ class EloquentPostRepository implements PostInterface
     }
 
     /**
-     * Create and then return a Recipe
+     * Create and return a Post
      *
      * @param mixed $input
      * @throws \Exception
@@ -96,7 +96,7 @@ class EloquentPostRepository implements PostInterface
     }
 
     /**
-     * Update Post
+     * Update Post and return a Post
      *
      * @param int $id
      * @param mixed $input
