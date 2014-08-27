@@ -20,4 +20,6 @@ Route::get('/', function()
 Route::group(array('prefix' => 'api/v1'), function()
 {
     Route::resource('posts', '\Korra\Controllers\PostController', ['except' => ['create', 'edit']]);
+    Route::resource('posts.categories', '\Korra\Controllers\PostCategoriesController', ['only' => ['index']]);
+    Route::resource('posts.tags', '\Korra\Controllers\PostTagsController', ['only' => ['index']]);
 });

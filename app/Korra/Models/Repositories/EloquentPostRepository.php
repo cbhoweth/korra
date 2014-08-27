@@ -41,7 +41,7 @@ class EloquentPostRepository implements PostInterface
     }
 
     /**
-     *
+     * Show Post Detail
      *
      * @param mixed $id
      * @return Model
@@ -49,7 +49,7 @@ class EloquentPostRepository implements PostInterface
      */
     public function show($id)
     {
-        $post = $this->postModel->find($id);
+        $post = $this->postModel->with('tags', 'categories')->find($id);
 
         if (!$post) {
             throw new NotFoundHttpException("Post with id #" . $id . " Not Found");
@@ -116,5 +116,51 @@ class EloquentPostRepository implements PostInterface
         // Fire Event
         // $this->events->fire('post.updated', array(json_decode($post)));
         return $post;
+    }
+
+    /**
+     * Return a Post's Categories
+     *
+     * @param int $postId
+     * @return Model
+     * @throws NotFoundHttpException
+     */
+    public function getCategoriesByPostId($postId) {
+        $post = $this->postModel->find($postId);
+
+        if (!$post) {
+            throw new NotFoundHttpException("Post with id #" . $postId . " Not Found");
+        }
+
+        $categories = $post->categories();
+
+        if ($categories->count() < 1) {
+            throw new NotFoundHttpException("Categories for Post with id #" . $postId . " Not Found");
+        }
+
+        return $categories->get();
+    }
+
+    /**
+     * Return a Post's Tags
+     *
+     * @param int $postId
+     * @return Model
+     * @throws NotFoundHttpException
+     */
+    public function getTagsByPostId($postId) {
+        $post = $this->postModel->find($postId);
+
+        if (!$post) {
+            throw new NotFoundHttpException("Post with id #" . $postId . " Not Found");
+        }
+
+        $tags = $post->tags();
+
+        if ($tags->count() < 1) {
+            throw new NotFoundHttpException("Tags for Post with id #" . $postId . " Not Found");
+        }
+
+        return $tags->get();
     }
 }
