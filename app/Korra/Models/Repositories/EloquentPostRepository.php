@@ -142,6 +142,28 @@ class EloquentPostRepository implements PostInterface
     }
 
     /**
+     * Delete a Post's Category
+     *
+     * @param int $postId
+     * @param int $categoryId
+     * @return Model
+     * @throws NotFoundHttpException
+     */
+    public function deletePostCategory($postId, $categoryId) {
+        $post = $this->postModel->find($postId);
+
+        if (!$post) {
+            throw new NotFoundHttpException("Post with id #" . $postId . " Not Found");
+        }
+
+        if (!$post->categories->contains($categoryId)) {
+            throw new NotFoundHttpException("Category doesn't exist on Post with id #" . $postId);
+        }
+
+        $post->categories()->detach($categoryId);
+    }
+
+    /**
      * Return a Post's Tags
      *
      * @param int $postId
