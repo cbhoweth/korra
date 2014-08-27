@@ -12,11 +12,11 @@ class Post extends \Eloquent {
 
     public function categories()
     {
-        return $this->hasMany('\Korra\Models\Entities\Category');
+        return $this->belongsToMany('\Korra\Models\Entities\Category');
     }
 
     public function tags()
     {
-        return $this->hasMany('\Korra\Models\Entities\Tag');
+        return $this->belongsToMany('\Korra\Models\Entities\Tag');
     }
 }

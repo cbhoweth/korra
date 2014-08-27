@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fa4c2b79cd28e252d9854f0ec65f8f74",
+    "hash": "2299bb0d19550b77c37abf5036d20128",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1629,16 +1629,16 @@
     "packages-dev": [
         {
             "name": "barryvdh/laravel-ide-helper",
-            "version": "v1.11.2",
+            "version": "v1.11.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-ide-helper.git",
-                "reference": "19aa77ac49ab4ea859196c692618c56de3bb7e01"
+                "reference": "9a67d9132f0e2b9ed5d668aaa8a2ebc7d4dd6d49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/19aa77ac49ab4ea859196c692618c56de3bb7e01",
-                "reference": "19aa77ac49ab4ea859196c692618c56de3bb7e01",
+                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/9a67d9132f0e2b9ed5d668aaa8a2ebc7d4dd6d49",
+                "reference": "9a67d9132f0e2b9ed5d668aaa8a2ebc7d4dd6d49",
                 "shasum": ""
             },
             "require": {
@@ -1688,7 +1688,57 @@
                 "phpstorm",
                 "sublime"
             ],
-            "time": "2014-08-12 12:34:30"
+            "time": "2014-08-26 08:54:34"
+        },
+        {
+            "name": "fzaninotto/faker",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "e49b9989b8687da7eedc5a33f7775a1562424765"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/e49b9989b8687da7eedc5a33f7775a1562424765",
+                "reference": "e49b9989b8687da7eedc5a33f7775a1562424765",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Faker": "src/",
+                    "Faker\\PHPUnit": "test/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2014-08-26 07:14:36"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -1841,7 +1891,8 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "way/generators": 20
+        "way/generators": 20,
+        "fzaninotto/faker": 20
     },
     "prefer-stable": false,
     "platform": [

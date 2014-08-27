@@ -31,7 +31,7 @@ class EloquentPostRepository implements PostInterface
 
     public function index()
     {
-        $posts = $this->postModel->with('tags','categories')->get();
+        $posts = $this->postModel->with('tags', 'categories')->get();
 
         if ($posts->count() < 1) {
             throw new NotFoundHttpException("No posts found.");
