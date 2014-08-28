@@ -16,25 +16,28 @@ class PostsTableSeeder extends Seeder {
         $faker = Faker::create();
 
         foreach(range(1, 10) as $index)
+        {
+            $tag = Tag::create([
+                'name' => $faker->domainWord
+            ]);
+
+            $category = Category::create([
+                'name' => $faker->colorName
+            ]);
+        };
+
+        foreach(range(1, 10) as $index)
 		{
 			$post = Post::create([
                 'title' => $faker->catchPhrase,
                 'body' => $faker->realText()
 			]);
 
-            foreach(range(1, 10) as $index)
+            foreach(range(1, 5) as $index)
             {
-                $tag = Tag::create([
-                    'name' => $faker->domainWord
-                ]);
-
-                $category = Category::create([
-                    'name' => $faker->colorName
-                ]);
-
-                $post->tags()->attach($tag->id);
-                $post->categories()->attach($category->id);
-            };
+                $post->tags()->attach($index);
+                $post->categories()->attach($index);
+            }
 		}
 	}
 }

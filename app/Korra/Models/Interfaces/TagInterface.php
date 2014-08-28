@@ -1,10 +1,10 @@
 <?php namespace Korra\Models\Interfaces;
 
-interface PostInterface
+interface TagInterface
 {
     public function index();
-    public function show($postId);
+    public function show($id);
     public function create($input);
-    public function update($id, $inpit);
+    public function update($id, $input);
     public function delete($id);
 }

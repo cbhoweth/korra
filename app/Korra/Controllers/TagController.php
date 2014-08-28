@@ -1,18 +1,16 @@
 <?php
 namespace Korra\Controllers;
 
-use Korra\Models\Interfaces\PostInterface;
-use Symfony\Component\HttpFoundation\Response;
+use Korra\Models\Interfaces\TagInterface;
 
-//class PostController extends \BaseController {
-class PostController extends \Controller {
-    protected $postRepo;
+class TagController extends \Controller {
+    protected $tagRepo;
 
     /**
-     * @param PostInterface $postRepo
+     * @param tagInterface $tagRepo
      */
-    public function __construct(PostInterface $postRepo) {
-        $this->postRepo = $postRepo;
+    public function __construct(TagInterface $tagRepo) {
+        $this->tagRepo = $tagRepo;
     }
 
     /**
@@ -22,8 +20,8 @@ class PostController extends \Controller {
      */
     public function index()
     {
-        $posts = $this->postRepo->index();
-        return \Response::json($posts);
+        $tags = $this->tagRepo->index();
+        return \Response::json($tags);
     }
 
     /**
@@ -33,8 +31,8 @@ class PostController extends \Controller {
      */
     public function store()
     {
-        $post = $this->postRepo->create(\Input::json()->all());
-        return \Response::json($post);
+        $tag = $this->tagRepo->create(\Input::json()->all());
+        return \Response::json($tag);
     }
 
     /**
@@ -45,8 +43,8 @@ class PostController extends \Controller {
      */
     public function show($id)
     {
-        $post = $this->postRepo->show($id);
-        return \Response::json($post);
+        $tag = $this->tagRepo->show($id);
+        return \Response::json($tag);
     }
 
 
@@ -58,7 +56,7 @@ class PostController extends \Controller {
      */
     public function update($id)
     {
-        $post = $this->postRepo->update($id, \Input::json()->all());
+        $post = $this->tagRepo->update($id, \Input::json()->all());
         return \Response::json($post);
     }
 
@@ -71,7 +69,7 @@ class PostController extends \Controller {
      */
     public function destroy($id)
     {
-        $post = $this->postRepo->delete($id);
-        return \Response::json('Post Successfully Deleted');
+        $post = $this->tagRepo->delete($id);
+        return \Response::json('Tag Successfully Deleted');
     }
 }

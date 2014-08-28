@@ -4,7 +4,7 @@ use Korra\Models\Interfaces\PostInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Our ingredient repository, containing commonly used queries
+ * Our Post repository, containing commonly used queries
  */
 class EloquentPostRepository implements PostInterface
 {
@@ -25,7 +25,7 @@ class EloquentPostRepository implements PostInterface
     /**
      * View All Posts
      *
-     * @return Model
+     * @return Object
      * @throws NotFoundHttpException
      */
 
@@ -44,7 +44,7 @@ class EloquentPostRepository implements PostInterface
      * Show Post Detail
      *
      * @param mixed $id
-     * @return Model
+     * @return Object
      * @throws NotFoundHttpException
      */
     public function show($id)
@@ -62,8 +62,8 @@ class EloquentPostRepository implements PostInterface
      * Create and return a Post
      *
      * @param mixed $input
+     * @return Object
      * @throws \Exception
-     * @return Model
      */
     public function create($input)
     {
@@ -79,7 +79,7 @@ class EloquentPostRepository implements PostInterface
      * Delete Post
      *
      * @param int $id
-     * @return Model
+     * @return Object
      * @throws NotFoundHttpException
      */
     public function delete($id) {
@@ -100,7 +100,7 @@ class EloquentPostRepository implements PostInterface
      *
      * @param int $id
      * @param mixed $input
-     * @return Model
+     * @return Object
      * @throws NotFoundHttpException
      */
     public function update($id, $input) {
@@ -122,7 +122,7 @@ class EloquentPostRepository implements PostInterface
      * Return a Post's Categories
      *
      * @param int $postId
-     * @return Model
+     * @return Object
      * @throws NotFoundHttpException
      */
     public function getCategoriesByPostId($postId) {
@@ -146,7 +146,6 @@ class EloquentPostRepository implements PostInterface
      *
      * @param int $postId
      * @param int $categoryId
-     * @return Model
      * @throws NotFoundHttpException
      */
     public function deleteCategoryByPostId($postId, $categoryId) {
@@ -167,7 +166,7 @@ class EloquentPostRepository implements PostInterface
      * Return a Post's Tags
      *
      * @param int $postId
-     * @return Model
+     * @return Object
      * @throws NotFoundHttpException
      */
     public function getTagsByPostId($postId) {
@@ -191,7 +190,6 @@ class EloquentPostRepository implements PostInterface
      *
      * @param int $postId
      * @param int $tagId
-     * @return Model
      * @throws NotFoundHttpException
      */
     public function deleteTagByPostId($postId, $tagId) {

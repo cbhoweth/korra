@@ -17,6 +17,8 @@ class PostTagsController extends \Controller {
     /**
      * Display a listing of the resource.
      *
+     * @param $postId
+     * @return \Response
      */
     public function index($postId)
     {
@@ -27,6 +29,9 @@ class PostTagsController extends \Controller {
     /**
      * Remove the specified resource from storage.
      *
+     * @param $postId
+     * @param $tagId
+     * @return \Response
      */
     public function destroy($postId, $tagId)
     {

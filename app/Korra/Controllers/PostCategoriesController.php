@@ -17,6 +17,8 @@ class PostCategoriesController extends \Controller {
     /**
      * Display a listing of the resource.
      *
+     * @param int $postId
+     * @return \Response
      */
     public function index($postId)
     {
@@ -27,6 +29,9 @@ class PostCategoriesController extends \Controller {
     /**
      * Remove the specified resource from storage.
      *
+     * @param int $postId
+     * @param int $categoryId
+     * @return \Response
      */
     public function destroy($postId, $categoryId)
     {
