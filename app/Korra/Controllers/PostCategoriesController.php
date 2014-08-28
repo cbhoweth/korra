@@ -30,7 +30,7 @@ class PostCategoriesController extends \Controller {
      */
     public function destroy($postId, $categoryId)
     {
-        $this->postRepo->deletePostCategory($postId, $categoryId);
+        $this->postRepo->deleteCategoryByPostId($postId, $categoryId);
         return \Response::json('Category Successfully Deleted from Post with id #' . $postId);
     }
 }

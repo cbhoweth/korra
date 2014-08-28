@@ -149,7 +149,7 @@ class EloquentPostRepository implements PostInterface
      * @return Model
      * @throws NotFoundHttpException
      */
-    public function deletePostCategory($postId, $categoryId) {
+    public function deleteCategoryByPostId($postId, $categoryId) {
         $post = $this->postModel->find($postId);
 
         if (!$post) {
@@ -184,5 +184,27 @@ class EloquentPostRepository implements PostInterface
         }
 
         return $tags->get();
+    }
+
+    /**
+     * Delete a Post's Tag
+     *
+     * @param int $postId
+     * @param int $tagId
+     * @return Model
+     * @throws NotFoundHttpException
+     */
+    public function deleteTagByPostId($postId, $tagId) {
+        $post = $this->postModel->find($postId);
+
+        if (!$post) {
+            throw new NotFoundHttpException("Post with id #" . $postId . " Not Found");
+        }
+
+        if (!$post->tags->contains($tagId)) {
+            throw new NotFoundHttpException("Tag doesn't exist on Post with id #" . $postId);
+        }
+
+        $post->tags()->detach($tagId);
     }
 }

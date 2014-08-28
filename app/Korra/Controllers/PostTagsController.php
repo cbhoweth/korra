@@ -23,4 +23,14 @@ class PostTagsController extends \Controller {
         $tags = $this->postRepo->getTagsByPostId($postId);
         return \Response::json($tags);
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     */
+    public function destroy($postId, $tagId)
+    {
+        $this->postRepo->deleteTagByPostId($postId, $tagId);
+        return \Response::json('Tag Successfully Deleted from Post with id #' . $postId);
+    }
 }
