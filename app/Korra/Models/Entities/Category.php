@@ -3,7 +3,7 @@ namespace Korra\Models\Entities;
 
 class Category extends \Eloquent {
 
-    protected $fillable = [];
+    protected $fillable = ['name'];
 
     function __construct(array $attributes = [])
     {
@@ -12,6 +12,6 @@ class Category extends \Eloquent {
 
     public function post()
     {
-        return $this->belongsToMany('\Korra\Models\Entities\Post');
+        return $this->belongsToMany('\Korra\Models\Entities\Post')->withTimestamps();
     }
 }

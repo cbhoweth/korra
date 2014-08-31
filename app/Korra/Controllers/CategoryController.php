@@ -10,6 +10,7 @@ class CategoryController extends \Controller {
      * @param CategoryInterface $categoryRepo
      */
     public function __construct(CategoryInterface $categoryRepo) {
+//        $this->beforeFilter('csrf', array('on' => array('post', 'put', 'destroy')));
         $this->categoryRepo = $categoryRepo;
     }
 

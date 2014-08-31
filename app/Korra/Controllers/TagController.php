@@ -10,6 +10,7 @@ class TagController extends \Controller {
      * @param tagInterface $tagRepo
      */
     public function __construct(TagInterface $tagRepo) {
+//        $this->beforeFilter('csrf', array('on' => array('post', 'put', 'destroy')));
         $this->tagRepo = $tagRepo;
     }
 

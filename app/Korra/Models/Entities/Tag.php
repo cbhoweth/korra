@@ -12,6 +12,6 @@ class Tag extends \Eloquent {
 
     public function post()
     {
-        return $this->belongsToMany('\Korra\Models\Entities\Post');
+        return $this->belongsToMany('\Korra\Models\Entities\Post')->withTimestamps();
     }
 }

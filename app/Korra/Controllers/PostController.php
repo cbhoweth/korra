@@ -12,6 +12,7 @@ class PostController extends \Controller {
      * @param PostInterface $postRepo
      */
     public function __construct(PostInterface $postRepo) {
+//        $this->beforeFilter('csrf', array('on' => array('post', 'put', 'destroy')));
         $this->postRepo = $postRepo;
     }
 

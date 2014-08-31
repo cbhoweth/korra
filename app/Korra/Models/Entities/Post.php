@@ -12,11 +12,11 @@ class Post extends \Eloquent {
 
     public function categories()
     {
-        return $this->belongsToMany('\Korra\Models\Entities\Category');
+        return $this->belongsToMany('\Korra\Models\Entities\Category')->withTimestamps();
     }
 
     public function tags()
     {
-        return $this->belongsToMany('\Korra\Models\Entities\Tag');
+        return $this->belongsToMany('\Korra\Models\Entities\Tag')->withTimestamps();
     }
 }
