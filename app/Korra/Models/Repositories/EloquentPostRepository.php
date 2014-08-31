@@ -69,9 +69,18 @@ class EloquentPostRepository implements PostInterface
     {
         $post = $this->postModel->create($input);
 
+        if (isset($input['categories'])) {
+            $post->categories()->attach($input['categories']);
+        }
+
+        if (isset($input['tags'])) {
+            $post->tags()->attach($input['tags']);
+        }
+
         // Fire Event
         // $this->events->fire('post.create', array(json_decode($post)));
 
+        $post->load('categories', 'tags');
         return $post;
     }
 

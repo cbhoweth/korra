@@ -63,7 +63,6 @@ class EloquentCategoryRepository implements CategoryInterface
      *
      * @param mixed $input
      * @return Object
-     * @throws \Exception
      */
     public function create($input)
     {
