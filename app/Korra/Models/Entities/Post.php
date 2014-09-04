@@ -25,7 +25,7 @@ class Post extends \Eloquent {
      *
      * @var array
      */
-//    protected $allowedFilterParams = ['limit', 'perPage'];
+    // protected $allowedFilterParams = ['limit', 'perPage'];
 
     /**
      * A reusable query to pass params
@@ -44,18 +44,18 @@ class Post extends \Eloquent {
         $query->orderBy($orderBy, $sortOrder);
 
         // Make sure whatever the user submitted is acceptable
-//        $filterBy = array_only($queryFilter, $this->allowedFilterParams);
-//
-//        foreach($filterBy AS $field => $value) {
-//            $query->where($field, 'LIKE', "%$value%");
-//        }
+        // $filterBy = array_only($queryFilter, $this->allowedFilterParams);
+        //
+        // foreach($filterBy AS $field => $value) {
+        //     $query->where($field, 'LIKE', "%$value%");
+        // }
 
-        if (isset($perPage)) {
+        if ($perPage)
+        {
             return $query->paginate($perPage);
-        } else {
-            return $query->take($limit)->get();
         }
-    }
 
+        return $query->take($limit)->get();
+    }
 }
 
