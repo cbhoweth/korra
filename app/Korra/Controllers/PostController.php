@@ -23,8 +23,8 @@ class PostController extends \Controller {
      */
     public function index()
     {
-        $posts = $this->postRepo->index();
-        return \Response::json($posts);
+       $posts = $this->postRepo->index(\Input::all());
+       return \Response::json($posts);
     }
 
     /**

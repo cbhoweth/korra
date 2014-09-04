@@ -31,7 +31,7 @@ class EloquentTagRepository implements TagInterface
 
     public function index()
     {
-        $tags = $this->tagModel->get();
+        $tags = $this->tagModel->orderBy('name')->get();
 
         if ($tags->count() < 1) {
             throw new NotFoundHttpException("No Tags found.");

@@ -3,7 +3,7 @@ namespace Korra\Models\Entities;
 
 class Tag extends \Eloquent {
 
-    protected $fillable = [];
+    protected $fillable = ['name'];
 
     function __construct(array $attributes = [])
     {

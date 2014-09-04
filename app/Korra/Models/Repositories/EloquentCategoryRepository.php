@@ -31,7 +31,7 @@ class EloquentCategoryRepository implements CategoryInterface
 
     public function index()
     {
-        $categories = $this->categoryModel->get();
+        $categories = $this->categoryModel->orderBy('name')->get();
 
         if ($categories->count() < 1) {
             throw new NotFoundHttpException("No Categories found.");

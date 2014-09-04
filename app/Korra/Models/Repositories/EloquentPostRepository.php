@@ -23,15 +23,18 @@ class EloquentPostRepository implements PostInterface
 
 
     /**
-     * View All Posts
+     * A list of Posts
      *
-     * @return Object
+     * @param $params
+     *
+     * @return mixed
      * @throws NotFoundHttpException
      */
 
-    public function index()
+    public function index($params)
     {
-        $posts = $this->postModel->with('tags', 'categories')->get();
+
+        $posts = $this->postModel->with('tags', 'categories')->queryWithParams($params);
 
         if ($posts->count() < 1) {
             throw new NotFoundHttpException("No posts found.");
@@ -70,11 +73,11 @@ class EloquentPostRepository implements PostInterface
         $post = $this->postModel->create($input);
 
         if (isset($input['categories'])) {
-            $post->categories()->attach($input['categories']);
+            $post->categories()->sync($input['categories']);
         }
 
         if (isset($input['tags'])) {
-            $post->tags()->attach($input['tags']);
+            $post->tags()->sync($input['tags']);
         }
 
         // Fire Event
@@ -121,6 +124,14 @@ class EloquentPostRepository implements PostInterface
 
         $post->fill($input);
         $post->save();
+
+        if (isset($input['categories'])) {
+            $post->categories()->sync($input['categories']);
+        }
+
+        if (isset($input['tags'])) {
+            $post->tags()->sync($input['tags']);
+        }
 
         // Fire Event
         // $this->events->fire('post.updated', array(json_decode($post)));
