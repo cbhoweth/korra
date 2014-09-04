@@ -1,0 +1,12 @@
+<div class="well well-lg">
+    <form name="categoryForm" role="form">
+        <div class="input-group">
+            <input type="text" name="categoryForm.name" class="form-control input-lg" placeholder="Category Name" ng-model="category.name" required />
+            <span class="input-group-btn">
+                <input ng-click="create(category)" type="submit" class="btn btn-lg btn-primary" value="create" ng-if="!category.id" ng-disabled="categoryForm.$invalid" />
+                <input ng-click="update(category)" type="submit" class="btn btn-lg btn-primary" value="update" ng-if="category.id" ng-disabled="categoryForm.$invalid || categoryForm.$pristine" />
+                <input ng-click="cancel()" type="submit" class="btn btn-lg btn-danger" ng-if="categoryForm.$dirty && category" value="cancel" />
+            </span>
+        </div>
+    </form>
+</div>

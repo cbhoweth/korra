@@ -1,0 +1,8 @@
+<div ng-repeat="post in posts">
+    <h3><a ui-sref='posts.detail({ id: post.id })'>{{ post.title }}</a></h3>
+    <p>{{ post.created_at }}</p>
+    <div>
+        <a class="btn btn-sm btn-default" ng-repeat="tag in post.tags" style="margin-right: 5px">{{ tag.name }}</a>
+    </div>
+    <hr/>
+</div>

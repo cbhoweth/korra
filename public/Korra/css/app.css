@@ -1,0 +1,23 @@
+footer {
+    border-top: 1px solid #e5e5e5;
+    color: #777;
+    margin: 50px 0 25px;
+    padding-top: 19px;
+}
+
+/* Loading Bar - Overwrite */
+#loading-bar .bar {
+    top: auto;
+    bottom: 0;
+    height: 3px;
+}
+
+#loading-bar .peg {
+    box-shadow: none;
+}
+
+#loading-bar-spinner {
+    top: auto;
+    bottom: 15px;
+    left: 10px;
+}

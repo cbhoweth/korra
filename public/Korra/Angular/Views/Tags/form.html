@@ -1,0 +1,12 @@
+<div class="well well-lg">
+    <form name="tagForm" role="form">
+        <div class="input-group">
+            <input type="text" name="tagForm.name" class="form-control input-lg" placeholder="Tag Name" ng-model="tag.name" required />
+            <span class="input-group-btn">
+                <input ng-click="create(tag)" type="submit" class="btn btn-lg btn-primary" value="create" ng-if="!tag.id" ng-disabled="tagForm.$invalid" />
+                <input ng-click="update(tag)" type="submit" class="btn btn-lg btn-primary" value="update" ng-if="tag.id" ng-disabled="tagForm.$invalid || tagForm.$pristine" />
+                <input ng-click="cancel()" type="submit" class="btn btn-lg btn-danger" ng-if="tagForm.$dirty && tag" value="cancel" />
+            </span>
+        </div>
+    </form>
+</div>

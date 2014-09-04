@@ -1,0 +1,20 @@
+<div class="Post">
+    <h4 class="Post__title page-header">
+        {{ post.title }}
+        <small class="Post__date pull-right">{{ post.created_at }}</small>
+    </h4>
+
+    <div class="Post__body well">
+        <p>{{ post.body }}</p>
+    </div>
+
+    <div class="Post__tags">
+        <h5>Categories:</h5>
+        <a class="btn btn-sm btn-default" ng-repeat="category in post.categories" ng-click="deleteCategory(post, category.id)" style="margin-right: 5px"><span class="glyphicon glyphicon-remove"></span> {{ category.name }}</a>
+    </div>
+
+    <div class="Post__tags">
+        <h5>Tags:</h5>
+        <a class="btn btn-sm btn-default" ng-repeat="tag in post.tags" ng-click="deleteTag(post, tag.id)" style="margin-right: 5px"><span class="glyphicon glyphicon-remove"></span> {{ tag.name }}</a>
+    </div>
+</div>
