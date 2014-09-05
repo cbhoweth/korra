@@ -4,11 +4,6 @@ angular.module('korra').controller('TagListCtrl', function($rootScope, $scope, $
     $scope.tags = TagService.list().$object;
     $scope.tag = {};
 
-//  Can also be written
-//  PostService.getPosts({ limit: params.tagLimit }).then(function(posts) {
-//      $scope.categories = categories;
-//  });
-
     /*
      * Actions
      */

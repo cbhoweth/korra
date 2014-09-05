@@ -4,11 +4,6 @@ angular.module('korra').controller('CategoryListCtrl', function($rootScope, $sco
     $scope.categories = CategoryService.list().$object;
     $scope.category = {};
 
-//  Can also be written
-//  PostService.getPosts({ limit: params.categoryLimit }).then(function(posts) {
-//      $scope.categories = categories;
-//  });
-
     /*
      * Actions
      */

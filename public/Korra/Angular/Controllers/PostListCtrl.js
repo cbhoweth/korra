@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('korra').controller('PostListCtrl', function($rootScope, $scope, $state, Restangular, PostService) {
+angular.module('korra').controller('PostListCtrl', function($rootScope, $scope, $state, PostService) {
 
     var params = {};
 
@@ -12,7 +12,7 @@ angular.module('korra').controller('PostListCtrl', function($rootScope, $scope, 
     $scope.posts = PostService.list({ limit: params.postLimit }).$object;
 
     /*
-     * Event Listemers
+     * Event Listeners
      */
     $scope.$on('post.create', function(post) {
         $scope.posts = PostService.list({ limit: params.postLimit }).$object;

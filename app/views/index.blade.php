@@ -1,8 +1,10 @@
 <!doctype html>
+
+<!-- IMPORTANT: Declare your Angular App -->
 <html lang="en" ng-app="korra">
 <head>
 	<meta charset="UTF-8">
-	<title>Korra - Fire | Water | Earth | Air</title>
+	<title>Korra - Earth | Fire | Air | Water</title>
     <base href="Korra/">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
     <link href="libraries/loading-bar.min.css" type="text/css" rel="stylesheet" />
@@ -43,7 +45,7 @@
     </div>
 </header>
 
-<!-- Main Content View used by AngularJS ui-router --->
+<!-- IMPORTANT: Main Content View used by AngularJS ui-router --->
 <div class="Main" ui-view="main"></div>
 
 <footer>
@@ -52,12 +54,14 @@
     </div>
 </footer>
 
+<!-- IMPORTANT: Load all the Angular Magic -->
 <script type="text/javascript" src="//cdn.jsdelivr.net/angular.all/1.3.0-beta.14/angular-all.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/restangular/latest/restangular.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/angular.ui-router/0.2.10/angular-ui-router.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/lodash/2.1.0/lodash.compat.min.js"></script>
 <script type="text/javascript" src="libraries/loading-bar.min.js"></script>
 
+<!-- IMPORTANT: Load your Angular App -->
 <script type="text/javascript" src="/Korra/Angular/app.js"></script>
 
 <!-- Post Files -->
